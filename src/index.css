@@ -1,93 +1,87 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* PowerShop Design System: Crimson Tech Minimalist */
+/* PowerShop Design System: Obsidian & Crimson */
 
 @layer base {
   :root {
-    /* Deep void black background */
-    --background: 0 0% 2%;
+    /* Obsidian Black Base */
+    --background: 240 10% 3%;
     --foreground: 0 0% 98%;
 
-    /* Card surfaces - slightly lighter than background */
-    --card: 0 0% 4%;
+    /* Glassy/Obsidian Surfaces */
+    --card: 240 10% 5%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 4%;
+    --popover: 240 10% 5%;
     --popover-foreground: 0 0% 98%;
 
-    /* Crimson Red - Primary accent (#D92632) */
-    --primary: 356 76% 50%;
+    /* Neon Crimson - Aggressive & Premium */
+    --primary: 345 100% 45%;
     --primary-foreground: 0 0% 100%;
 
-    /* Dark secondary surfaces */
-    --secondary: 0 0% 8%;
+    /* Deep Space Secondary */
+    --secondary: 240 5% 10%;
     --secondary-foreground: 0 0% 90%;
 
-    /* Muted grays for text */
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 60%;
+    /* Cool Muted Tones */
+    --muted: 240 5% 15%;
+    --muted-foreground: 240 5% 60%;
 
-    /* Metallic Gold accent (#C69C3A) */
-    --accent: 42 55% 50%;
+    /* Cyber Gold */
+    --accent: 45 100% 50%;
     --accent-foreground: 0 0% 5%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 356 76% 50%;
+    --border: 240 5% 15%;
+    --input: 240 5% 15%;
+    --ring: 345 100% 45%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem; /* Sharper corners for tech feel */
 
-    /* Custom PowerShop tokens */
-    --crimson: 356 76% 50%;
-    --crimson-glow: 356 76% 50%;
-    --gold: 42 55% 50%;
-    --void: 0 0% 2%;
+    /* Custom Tokens */
+    --crimson: 345 100% 45%;
+    --gold: 45 100% 50%;
+    --obsidian: 240 10% 3%;
 
-    --sidebar-background: 0 0% 3%;
+    --sidebar-background: 240 10% 4%;
     --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 356 76% 50%;
+    --sidebar-primary: 345 100% 45%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 8%;
+    --sidebar-accent: 240 5% 10%;
     --sidebar-accent-foreground: 0 0% 90%;
-    --sidebar-border: 0 0% 15%;
-    --sidebar-ring: 356 76% 50%;
+    --sidebar-border: 240 5% 15%;
+    --sidebar-ring: 345 100% 45%;
   }
 
+  /* Force dark mode behavior always as per 'Obsidian' theme */
   .dark {
-    --background: 0 0% 2%;
+    --background: 240 10% 3%;
     --foreground: 0 0% 98%;
-    --card: 0 0% 4%;
+    /* ...same values as root since it's a dark-only theme... */
+    --card: 240 10% 5%;
     --card-foreground: 0 0% 98%;
-    --popover: 0 0% 4%;
+    --popover: 240 10% 5%;
     --popover-foreground: 0 0% 98%;
-    --primary: 356 76% 50%;
+    --primary: 345 100% 45%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 8%;
+    --secondary: 240 5% 10%;
     --secondary-foreground: 0 0% 90%;
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 60%;
-    --accent: 42 55% 50%;
+    --muted: 240 5% 15%;
+    --muted-foreground: 240 5% 60%;
+    --accent: 45 100% 50%;
     --accent-foreground: 0 0% 5%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 356 76% 50%;
-    --sidebar-background: 0 0% 3%;
-    --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 356 76% 50%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 8%;
-    --sidebar-accent-foreground: 0 0% 90%;
-    --sidebar-border: 0 0% 15%;
-    --sidebar-ring: 356 76% 50%;
+    --border: 240 5% 15%;
+    --input: 240 5% 15%;
+    --ring: 345 100% 45%;
   }
 }
 
@@ -101,72 +95,83 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground antialiased selection:bg-crimson/30 selection:text-white;
     font-family: 'Inter', sans-serif;
+    /* subtle noise texture */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight uppercase;
   }
 }
 
 @layer components {
-  /* Glassmorphism effect */
-  .glass {
-    @apply bg-background/70 backdrop-blur-xl border-b border-border/50;
+  /* Premium Glass */
+  .glass-panel {
+    @apply bg-background/60 backdrop-blur-xl border border-white/5 shadow-2xl;
   }
 
-  /* Crimson glow effect */
-  .glow-crimson {
-    box-shadow: 0 0 30px -5px hsl(var(--crimson) / 0.4);
+  /* Neon Glows */
+  .glow-text-crimson {
+    text-shadow: 0 0 20px hsl(var(--crimson) / 0.5);
   }
 
-  .glow-crimson-hover:hover {
-    box-shadow: 0 0 40px -5px hsl(var(--crimson) / 0.6);
+  .glow-box-crimson {
+    box-shadow: 0 0 30px -5px hsl(var(--crimson) / 0.3);
   }
 
-  /* Gold border accent */
-  .border-gold {
-    border-color: hsl(var(--gold));
+  .glow-box-gold {
+    box-shadow: 0 0 30px -5px hsl(var(--gold) / 0.3);
   }
 
-  /* Card hover animation */
-  .card-hover {
-    @apply transition-all duration-300 ease-out;
+  /* Clip Path Shapes for "Game UI" look */
+  .clip-angled {
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - 20px),
+      calc(100% - 20px) 100%,
+      0 100%
+    );
+  }
+  
+  .clip-angled-reverse {
+     clip-path: polygon(
+      20px 0,
+      100% 0,
+      100% 100%,
+      0 100%,
+      0 20px
+    );
   }
 
-  .card-hover:hover {
-    @apply scale-[1.02];
-    box-shadow: 0 0 40px -10px hsl(var(--crimson) / 0.5);
+  /* Interactive Elements */
+  .btn-premium {
+    @apply relative overflow-hidden bg-primary text-white font-bold uppercase tracking-wider transition-all hover:scale-105 hover:shadow-[0_0_40px_-10px_rgba(217,38,50,0.5)];
   }
-
-  /* Marquee animation */
-  @keyframes marquee {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
+  
+  .btn-premium::after {
+    content: '';
+    @apply absolute inset-0 bg-white/20 translate-x-[-100%] skew-x-[-15deg] transition-transform duration-500;
   }
-
-  .animate-marquee {
-    animation: marquee 30s linear infinite;
-  }
-
-  /* Grayscale to color on hover */
-  .grayscale-hover {
-    @apply grayscale transition-all duration-300;
-  }
-
-  .grayscale-hover:hover {
-    @apply grayscale-0;
+  
+  .btn-premium:hover::after {
+    @apply translate-x-[120%];
   }
 }
 
 @layer utilities {
-  /* Text gradient utility */
   .text-gradient-crimson {
-    @apply bg-gradient-to-r from-primary to-red-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-white via-red-500 to-crimson bg-clip-text text-transparent;
   }
 
   .text-gradient-gold {
-    @apply bg-gradient-to-r from-accent to-yellow-300 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-600 bg-clip-text text-transparent;
+  }
+  
+  .bg-grid-white {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgba(255, 255, 255, 0.05)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
   }
 }
+

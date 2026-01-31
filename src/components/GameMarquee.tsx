@@ -1,36 +1,36 @@
 import { motion } from "framer-motion";
 
 const games = [
-  { name: "ROBLOX", emoji: "🎮" },
-  { name: "DRAGON CITY", emoji: "🐉" },
-  { name: "FREE FIRE", emoji: "🔥" },
-  { name: "LEAGUE OF LEGENDS", emoji: "⚔️" },
-  { name: "CLASH ROYALE", emoji: "👑" },
-  { name: "8 BALL POOL", emoji: "🎱" },
-  { name: "BRAWL STARS", emoji: "⭐" },
-  { name: "STUMBLE GUYS", emoji: "🏃" },
+  "ROBLOX",
+  "DRAGON CITY",
+  "FREE FIRE",
+  "LEAGUE OF LEGENDS",
+  "CLASH ROYALE",
+  "8 BALL POOL",
+  "BRAWL STARS",
+  "STUMBLE GUYS",
 ];
 
 const GameMarquee = () => {
   return (
-    <section className="relative py-8 bg-secondary/30 border-y border-border/50 overflow-hidden">
+    <section className="relative py-10 bg-black border-y border-white/10 overflow-hidden">
       {/* Gradient fade edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10" />
-      <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10" />
-      
+      <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black via-black/80 to-transparent z-10" />
+      <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-black via-black/80 to-transparent z-10" />
+
       <div className="flex animate-marquee whitespace-nowrap">
-        {/* First set */}
-        {[...games, ...games].map((game, index) => (
+        {/* Triple duplication for smooth infinite loop on wide screens */}
+        {[...games, ...games, ...games].map((game, index) => (
           <motion.div
             key={`item-${index}`}
             whileHover={{ scale: 1.05 }}
-            className="mx-6 md:mx-10 flex items-center gap-2 cursor-pointer group"
+            className="mx-8 md:mx-16 flex items-center gap-4 cursor-pointer group hover:opacity-100 transition-all duration-300"
           >
-            <span className="text-xl opacity-50 group-hover:opacity-100 transition-opacity duration-300">
-              {game.emoji}
-            </span>
-            <span className="text-base md:text-lg font-bold tracking-wider text-muted-foreground group-hover:text-foreground transition-all duration-300">
-              {game.name}
+            {/* Dot separator */}
+            <div className="w-1.5 h-1.5 rounded-full bg-crimson shadow-[0_0_10px_var(--crimson)]" />
+
+            <span className="text-3xl md:text-5xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white/80 to-white/20 group-hover:from-white group-hover:to-white/60 font-display uppercase italic opacity-80 group-hover:opacity-100 transition-opacity">
+              {game}
             </span>
           </motion.div>
         ))}

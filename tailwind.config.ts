@@ -15,6 +15,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Oswald', 'Impact', 'sans-serif'], // Added for "Cinema" headers
       },
       colors: {
         border: "hsl(var(--border))",
@@ -50,9 +51,21 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        crimson: "hsl(var(--crimson))",
-        gold: "hsl(var(--gold))",
-        void: "hsl(var(--void))",
+        // Premium Obsidian Palette
+        obsidian: {
+          DEFAULT: "#0A0A0B",
+          light: "#1A1A1D",
+          dark: "#050505",
+        },
+        crimson: {
+          DEFAULT: "#D92632",
+          neon: "#FF0033",
+          dark: "#8B0000",
+        },
+        gold: {
+          DEFAULT: "#C69C3A",
+          cyber: "#FFD700",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -90,6 +103,18 @@ export default {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
         },
+        glitch: {
+          "0%": { transform: "translate(0)" },
+          "20%": { transform: "translate(-2px, 2px)" },
+          "40%": { transform: "translate(-2px, -2px)" },
+          "60%": { transform: "translate(2px, 2px)" },
+          "80%": { transform: "translate(2px, -2px)" },
+          "100%": { transform: "translate(0)" },
+        },
+        "pulse-glow": {
+          "0%, 100%": { boxShadow: "0 0 20px -5px hsl(var(--primary) / 0.5)" },
+          "50%": { boxShadow: "0 0 40px -5px hsl(var(--primary) / 0.8)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -97,6 +122,8 @@ export default {
         "fade-in": "fade-in 0.5s ease-out forwards",
         "scale-in": "scale-in 0.3s ease-out forwards",
         marquee: "marquee 25s linear infinite",
+        glitch: "glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite",
+        "pulse-glow": "pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
     },
   },
