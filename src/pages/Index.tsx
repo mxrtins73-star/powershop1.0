@@ -4,6 +4,7 @@ import GameMarquee from "@/components/GameMarquee";
 import BentoGrid from "@/components/BentoGrid";
 import TrustIndicators from "@/components/TrustIndicators";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
@@ -16,6 +17,7 @@ const Index = () => {
         <TrustIndicators />
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };
